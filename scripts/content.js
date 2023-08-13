@@ -82,7 +82,7 @@ function getTranslation() {
     }
 
     if (prompt && prompt.textContent === 'Write this in English') {
-      chineseSentence = document.querySelector('#root > div._3W86r._3YKTw > div > div > div._3yOsW._3VXxf > div > div > div > div > div._1Zh-d._1lDmW.d84Fd > div._2qYLw._3oxW8._2Hg6H > div > div.r37iz > div > div._1KUxv._11rtD > div > span:nth-child(2)').textContent
+      sentence = document.querySelector('#root > div._3W86r._3YKTw > div > div > div._3yOsW._3VXxf > div > div > div > div > div._1Zh-d._1lDmW.d84Fd > div._2qYLw._3oxW8._2Hg6H > div > div.r37iz > div > div._1KUxv._11rtD > div > span:nth-child(2)').textContent
 
       // Get all the <span> elements in the word bank
       var spanElements = document.querySelector('#root > div._3W86r._3YKTw > div > div > div._3yOsW._3VXxf > div > div > div > div > div._1Zh-d._1lDmW.d84Fd > div._3GhCe._1zSeg._qg8x > div > div > div._3Lqi- > div').getElementsByTagName('span');
@@ -98,8 +98,8 @@ function getTranslation() {
 
       wordBankString = Array.from(wordBank).join('.')
       wordBank = new Set();
-      console.log(chineseSentence, wordBankString)
-      fetchData(chineseSentence, wordBankString)
+      console.log(sentence, wordBankString)
+      fetchData(sentence, wordBankString)
     }
 
   };
