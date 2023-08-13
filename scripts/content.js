@@ -1,8 +1,8 @@
 function createCheatButton() {
   // Create the button element
   const button = document.createElement("button");
-  button.textContent = "Cheat";
-  button.style.backgroundColor = "blue";
+  button.textContent = "CHEAT";
+  button.style.backgroundColor = '#41f288';
   button.style.color = "white";
   button.style.position = "fixed";
   button.style.bottom = "35px";
@@ -38,6 +38,8 @@ let selectAnswer = (data) => {
       }
     }
   }
+
+  document.querySelector("#session\\/PlayerFooter > div > div._10vOG > button").click()
 }
 
 function fetchData(origLang, wordBank) {
