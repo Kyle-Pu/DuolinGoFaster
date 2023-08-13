@@ -1,0 +1,34 @@
+{
+  "manifest_version": 3,
+  "name": "Cheat Annoying Duolingo Word Banks",
+  "version": "1.0",
+  "description": "Cheat the Duolingo word bank system",
+  "icons": {
+    "16": "images/icon.png",
+    "48": "images/icon.png",
+    "128": "images/icon.png"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "images/icon.png",
+        "images/icon.svg",
+        "images/icon.ico"
+      ],
+      "matches": [
+        "https://www.duolingo.com/*"
+      ]
+    }
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.duolingo.com/*"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ]
+}
