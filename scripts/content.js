@@ -1,39 +1,61 @@
-(function () {
+// Check when the continue button is clicked
+function handleElementClick(event) {
+  const target = event.target;
+  const selector = "#session\\/PlayerFooter > div > div._10vOG > button";
+  if (target.matches(selector)) {
+    setTimeout(function () {
+      getTranslation()
+    }, 500);
+  }
+}
+
+// Attach a click event listener to the document
+document.addEventListener("click", handleElementClick);
+
+function getTranslation() {
   const selectEnglishWords = () => {
 
-    const chineseContainer = document.querySelector(
-      '#root > div._3W86r._3YKTw > div._3x0ok > div > div._3yOsW._3VXxf > div > di\
-    v > div > div > div._1Zh-d._1lDmW.d84Fd > div._2qYLw._3oxW8._2Hg6H > div > \
-    div.r37iz > div > div._1KUxv._11rtD > div > span:nth-child(2)'
-    );
+    const chineseContainer = document.querySelector('#root > div._3W86r._3YKTw > div > div > div._3yOsW._3VXxf > div > div > div > div > div.FZpIH > h1 > span')
 
-    // Get all the <span> elements on the webpage
-    var spanElements = document.getElementsByTagName('span');
-
-    // Loop through each <span> element and extract the text content
-    for (var i = 0; i < spanElements.length; i++) {
-      var textInsideSpan = spanElements[i].textContent;
-
-      if (textInsideSpan && !(textInsideSpan in ['Skip', 'Check', '。'])) {
-        console.log(textInsideSpan);
-      }
+    if (chineseContainer) {
+      console.log(chineseContainer.textContent)
     }
+
+    if (chineseContainer && chineseContainer.textContent === 'Write this in English') {
+      // observer.disconnect();
+
+      // Get all the <span> elements on the webpage
+      var spanElements = document.getElementsByTagName('span');
+
+      // Loop through each <span> element and extract the text content
+      for (var i = 0; i < spanElements.length; i++) {
+        var textInsideSpan = spanElements[i].textContent;
+
+        if (textInsideSpan && !(textInsideSpan in ['Skip', 'Check', '。'])) {
+          // console.log(textInsideSpan);
+        }
+      }
+
+      // observeDOMChanges();
+    }
+
   };
+  selectEnglishWords()
 
-  const observeDOMChanges = () => {
-    // Observe the DOM changes and call selectEnglishWords when needed
-    observer.observe(document.body, {
-      childList: true,
-      subtree: true,
-      attributes: false,
-      characterData: false,
-    });
-  };
+  // const observeDOMChanges = () => {
+  //   // Observe the DOM changes and call selectEnglishWords when needed
+  //   observer.observe(document.body, {
+  //     childList: true,
+  //     subtree: true,
+  //     attributes: false,
+  //     characterData: false,
+  //   });
+  // };
 
-  // Listen for page changes
-  const observer = new MutationObserver(selectEnglishWords);
+  // // Listen for page changes
+  // const observer = new MutationObserver(selectEnglishWords);
 
-  // Start observing the DOM changes
-  observeDOMChanges();
+  // // Start observing the DOM changes
+  // observeDOMChanges();
 
-})();
+};
