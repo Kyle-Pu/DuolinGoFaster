@@ -1,3 +1,17 @@
+let selectAnswer = (data) => {
+  const words = data.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, '').split(' ')
+  const spanElements = document.querySelectorAll('button');
+  
+  for (var i = 0; i < words.length; i++) {
+    for (const span of spanElements) {
+      if (span.textContent.trim() === words[i]) {
+        span.click();
+        break; // Stop searching after clicking the first matching span
+      }
+    }
+  }
+}
+
 function fetchData(origLang, wordBank) {
   const apiUrl = `http://localhost:8000/orig_lang/${origLang}/${wordBank}`;
 
@@ -7,6 +21,7 @@ function fetchData(origLang, wordBank) {
     .then(data => {
       // Handle the API response data here
       console.log(data);
+      selectAnswer(data['Answer']);
     })
     .catch(error => {
       console.error("Error fetching data:", error);
