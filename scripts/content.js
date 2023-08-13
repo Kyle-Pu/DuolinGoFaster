@@ -1,3 +1,31 @@
+function createCheatButton() {
+  // Create the button element
+  const button = document.createElement("button");
+  button.textContent = "Cheat";
+  button.style.backgroundColor = "blue";
+  button.style.color = "white";
+  button.style.position = "fixed";
+  button.style.bottom = "35px";
+  button.style.left = "50%";
+  button.style.transform = "translateX(-50%)";
+  button.style.padding = "10px 20px";
+  button.style.border = "none";
+  button.style.borderRadius = "5px";
+  button.style.cursor = "pointer";
+  button.style.zIndex = "9999"; // Ensure the button is on top of other elements
+
+  // Add a click event listener to the button
+  button.addEventListener("click", () => {
+    getTranslation()
+  });
+
+  // Append the button to the document body
+  document.body.appendChild(button);
+}
+
+// Call the function to create the cheat button
+createCheatButton();
+
 let selectAnswer = (data) => {
   const words = data.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, '').split(' ')
   const spanElements = document.querySelectorAll('button');
@@ -35,7 +63,8 @@ function handleElementClick(event) {
   const target = event.target;
   const selector = "#session\\/PlayerFooter > div > div._10vOG > button";
   if (target.matches(selector)) {
-    setTimeout(() => getTranslation(), 500)
+    // setTimeout(() => getTranslation(), 500)
+    console.log("next")
   }
 }
 
