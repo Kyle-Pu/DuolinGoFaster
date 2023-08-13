@@ -4,6 +4,8 @@ I love Duolingo, but the word bank system is massively. Once I know the translat
 
 The Duolingo Word Bank Cheater is a FastAPI app with endpoints exposed through `localhost`. A Chrome extension frontend adds a button to Duolingo that sends question data to the app, which then uses GPT-3.5 to translate. The frontend then selects the right words for you!
 
+Note: currently only supports translation to English, although the prompt in `translation_api/main.py` can easily be modified to support any desired language.
+
 ## Installation
 
 Before proceeding, paste your OpenAI API key into a file named `openai_key.txt` in the project root directory. Note you may need to set up billing for API access. Costs incurred by using this application are your fault not mine!
