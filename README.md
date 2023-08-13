@@ -1,6 +1,6 @@
 # Duolingo Word Bank Cheater
 
-I love Duolingo, but the word bank system is massively. Once I know the translation, I don't want to waste my time finding the right words to click, and you probably don't either!
+I love Duolingo, but the word bank system is massively annoying. Once I know the translation, I don't want to waste my time finding the right words to click, and you probably don't either!
 
 The Duolingo Word Bank Cheater is a FastAPI app with endpoints exposed through `localhost`. A Chrome extension frontend adds a button to Duolingo that sends question data to the app, which then uses GPT-3.5 to translate. The frontend then selects the right words for you!
 
