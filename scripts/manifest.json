@@ -15,8 +15,6 @@
     {
       "resources": [
         "images/icon.png",
-        "images/icon.svg",
-        "images/icon.ico",
         "http://localhost:8000/*"
       ],
       "matches": [
