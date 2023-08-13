@@ -3,9 +3,7 @@ function handleElementClick(event) {
   const target = event.target;
   const selector = "#session\\/PlayerFooter > div > div._10vOG > button";
   if (target.matches(selector)) {
-    setTimeout(function () {
-      getTranslation()
-    }, 500);
+    setTimeout(() => getTranslation(), 500)
   }
 }
 
