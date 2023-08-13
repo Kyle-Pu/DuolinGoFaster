@@ -23,13 +23,10 @@ function createCheatButton() {
   document.body.appendChild(button);
 }
 
-// Call the function to create the cheat button
-createCheatButton();
-
 let selectAnswer = (data) => {
   const words = data.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, '').split(' ')
   const spanElements = document.querySelectorAll('button');
-  
+
   for (var i = 0; i < words.length; i++) {
     for (const span of spanElements) {
       if (span.textContent.trim() === words[i]) {
@@ -83,7 +80,9 @@ function getTranslation() {
     }
 
     if (prompt && prompt.textContent === 'Write this in English') {
-      // observer.disconnect();
+      // Call the function to create the cheat button only on the appropriate type of question ahaha
+      createCheatButton();
+
       chineseSentence = document.querySelector('#root > div._3W86r._3YKTw > div > div > div._3yOsW._3VXxf > div > div > div > div > div._1Zh-d._1lDmW.d84Fd > div._2qYLw._3oxW8._2Hg6H > div > div.r37iz > div > div._1KUxv._11rtD > div > span:nth-child(2)').textContent
 
       // Get all the <span> elements in the word bank
@@ -102,27 +101,8 @@ function getTranslation() {
       wordBank = new Set();
       console.log(chineseSentence, wordBankString)
       fetchData(chineseSentence, wordBankString)
-
-      // observeDOMChanges();
     }
 
   };
   selectEnglishWords()
-
-  // const observeDOMChanges = () => {
-  //   // Observe the DOM changes and call selectEnglishWords when needed
-  //   observer.observe(document.body, {
-  //     childList: true,
-  //     subtree: true,
-  //     attributes: false,
-  //     characterData: false,
-  //   });
-  // };
-
-  // // Listen for page changes
-  // const observer = new MutationObserver(selectEnglishWords);
-
-  // // Start observing the DOM changes
-  // observeDOMChanges();
-
 };
