@@ -1,6 +1,9 @@
 {
   "manifest_version": 3,
   "name": "Cheat Annoying Duolingo Word Banks",
+  "permissions": [
+    "http://localhost:8000/*"
+  ],
   "version": "1.0",
   "description": "Cheat the Duolingo word bank system",
   "icons": {
@@ -13,7 +16,8 @@
       "resources": [
         "images/icon.png",
         "images/icon.svg",
-        "images/icon.ico"
+        "images/icon.ico",
+        "http://localhost:8000/*"
       ],
       "matches": [
         "https://www.duolingo.com/*"

@@ -1,3 +1,18 @@
+function fetchData(origLang, wordBank) {
+  const apiUrl = `http://localhost:8000/orig_lang/${origLang}/${wordBank}`;
+
+  // Make a GET request using the Fetch API
+  fetch(apiUrl)
+    .then(response => response.json())
+    .then(data => {
+      // Handle the API response data here
+      console.log(data);
+    })
+    .catch(error => {
+      console.error("Error fetching data:", error);
+    });
+}
+
 let wordBank = new Set();
 
 // Check when the continue button is clicked
@@ -27,7 +42,7 @@ function getTranslation() {
 
       // Get all the <span> elements in the word bank
       var spanElements = document.querySelector('#root > div._3W86r._3YKTw > div > div > div._3yOsW._3VXxf > div > div > div > div > div._1Zh-d._1lDmW.d84Fd > div._3GhCe._1zSeg._qg8x > div > div > div._3Lqi- > div').getElementsByTagName('span');
-      
+
       // Loop through each <span> element and extract the text content
       for (var i = 0; i < spanElements.length; i++) {
         var textInsideSpan = spanElements[i].textContent;
@@ -38,7 +53,9 @@ function getTranslation() {
       }
 
       wordBankString = Array.from(wordBank).join('.')
+      wordBank = new Set();
       console.log(chineseSentence, wordBankString)
+      fetchData(chineseSentence, wordBankString)
 
       // observeDOMChanges();
     }
