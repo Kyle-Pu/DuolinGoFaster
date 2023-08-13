@@ -1,3 +1,5 @@
+let wordBank = new Set();
+
 // Check when the continue button is clicked
 function handleElementClick(event) {
   const target = event.target;
@@ -13,26 +15,30 @@ document.addEventListener("click", handleElementClick);
 function getTranslation() {
   const selectEnglishWords = () => {
 
-    const chineseContainer = document.querySelector('#root > div._3W86r._3YKTw > div > div > div._3yOsW._3VXxf > div > div > div > div > div.FZpIH > h1 > span')
+    const prompt = document.querySelector('#root > div._3W86r._3YKTw > div > div > div._3yOsW._3VXxf > div > div > div > div > div.FZpIH > h1 > span')
 
-    if (chineseContainer) {
-      console.log(chineseContainer.textContent)
+    if (prompt) {
+      console.log(prompt.textContent)
     }
 
-    if (chineseContainer && chineseContainer.textContent === 'Write this in English') {
+    if (prompt && prompt.textContent === 'Write this in English') {
       // observer.disconnect();
+      chineseSentence = document.querySelector('#root > div._3W86r._3YKTw > div > div > div._3yOsW._3VXxf > div > div > div > div > div._1Zh-d._1lDmW.d84Fd > div._2qYLw._3oxW8._2Hg6H > div > div.r37iz > div > div._1KUxv._11rtD > div > span:nth-child(2)').textContent
 
-      // Get all the <span> elements on the webpage
-      var spanElements = document.getElementsByTagName('span');
-
+      // Get all the <span> elements in the word bank
+      var spanElements = document.querySelector('#root > div._3W86r._3YKTw > div > div > div._3yOsW._3VXxf > div > div > div > div > div._1Zh-d._1lDmW.d84Fd > div._3GhCe._1zSeg._qg8x > div > div > div._3Lqi- > div').getElementsByTagName('span');
+      
       // Loop through each <span> element and extract the text content
       for (var i = 0; i < spanElements.length; i++) {
         var textInsideSpan = spanElements[i].textContent;
 
         if (textInsideSpan && !(textInsideSpan in ['Skip', 'Check', '。'])) {
-          // console.log(textInsideSpan);
+          wordBank.add(textInsideSpan);
         }
       }
+
+      wordBankString = Array.from(wordBank).join('.')
+      console.log(chineseSentence, wordBankString)
 
       // observeDOMChanges();
     }
