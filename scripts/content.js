@@ -22,6 +22,8 @@ function createCheatButton() {
   // Append the button to the document body
   document.body.appendChild(button);
 }
+// Call the function to create the cheat button
+createCheatButton();
 
 let selectAnswer = (data) => {
   const words = data.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, '').split(' ')
@@ -80,9 +82,6 @@ function getTranslation() {
     }
 
     if (prompt && prompt.textContent === 'Write this in English') {
-      // Call the function to create the cheat button only on the appropriate type of question ahaha
-      createCheatButton();
-
       chineseSentence = document.querySelector('#root > div._3W86r._3YKTw > div > div > div._3yOsW._3VXxf > div > div > div > div > div._1Zh-d._1lDmW.d84Fd > div._2qYLw._3oxW8._2Hg6H > div > div.r37iz > div > div._1KUxv._11rtD > div > span:nth-child(2)').textContent
 
       // Get all the <span> elements in the word bank
