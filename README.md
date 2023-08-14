@@ -8,7 +8,7 @@ Note: currently only supports translation to English, although the prompt in `tr
 
 ## Installation
 
-Before proceeding, paste your OpenAI API key into a file named `openai_key.txt` in the project root directory. Note you may need to set up billing for API access. Costs incurred by using this application are your fault not mine!
+Before proceeding, paste your OpenAI API key into a file named `openai_key.txt` in the project root directory. Note you may need to set up billing for API access. Costs incurred by using this application are your fault, not mine!
 
 ```
 pip install fastapi
@@ -16,9 +16,11 @@ pip install --upgrade openai
 pip install uvicorn # to run local server
 ```
 
-Navigate to `translation_api` and run `uvicorn main:app --reload`. Note the port number used for the server. You may need to update `manifest.json` in `scripts/` accordingly.
+Navigate to `translation_api` and run `uvicorn main:app --reload`. Note the port number used for the server. You may need to update `manifest.json` in `scripts/` accordingly (within `permissions` and `web-accessible-resources`).
 
 Navigate to `chrome://extensions` in Google Chrome, click `Load unpacked`, and select `scripts/`.
+
+- You may get an error regarding `Permission 'http://localhost:<PORT_NUMBER>/*' is unknown or URL pattern is malformed.` This is a-ok
 
 Ready to go!
 
