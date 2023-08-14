@@ -26,7 +26,7 @@ function createCheatButton() {
 createCheatButton();
 
 let selectAnswer = (data) => {
-  const words = data.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, '').split(' ')
+  const words = data.replace(/[.,\/#!?$%\^&\*;:{}=\-_`~()]/g, '').split(' ')
   const spanElements = document.querySelectorAll('button');
 
   for (var i = 0; i < words.length; i++) {
