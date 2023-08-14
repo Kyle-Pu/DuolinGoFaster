@@ -17,8 +17,9 @@ app.add_middleware(
 openai.api_key_path = '../openai_key.txt'
 
 def get_translation(orig_lang_phrase: str, word_bank: list[str]):
+    language = "English"
     model = openai.ChatCompletion.create(model="gpt-3.5-turbo", messages=[{
-        "role": "user", "content": f"Given this phrase: {orig_lang_phrase}, what is the most likely English translation using only words from this word bank: {','.join(word_bank)}. Words not in this bank should not be in your output, even if slightly incorrect in meaning. English grammar should be respected. Output the full translation, excluding exclamation marks, question marks, and periods. Don't output anything but the translation.",
+        "role": "user", "content": f"Given this phrase: {orig_lang_phrase}, what is the most likely {language} translation using only words from this word bank: {','.join(word_bank)}. Words not in this bank should not be in your output no matter what. Strictly follow {language} grammar, like you're writing a university paper. Output the full translation, not missing any words, excluding exclamation marks, question marks, and periods. Don't output anything but the translation.",
         }])
     return {'Answer': model.choices[0].message.content}
 
