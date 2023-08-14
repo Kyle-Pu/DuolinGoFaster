@@ -38,7 +38,8 @@ let selectAnswer = (data) => {
     }
   }
 
-  document.querySelector("#session\\/PlayerFooter > div > div._10vOG > button").click()
+  // Uncomment if you'd like auto submit (not good when the translation doesn't come out perfectly)
+  // document.querySelector("#session\\/PlayerFooter > div > div._10vOG > button").click()
 }
 
 function fetchData(origLang, wordBank) {

@@ -3,3 +3,5 @@ openai_key.txt
 *~
 demo.mov
 */__pycache__
+.*
+
